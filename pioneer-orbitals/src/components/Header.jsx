@@ -77,7 +77,7 @@ export default function Header() {
                             >
                               <div className="space-y-4">
                                 {navData.map(({_id, title, href}) => (
-                                  <div>
+                                  <div key={_id}>
                                     <MovileNavLinks 
                                       id={_id} 
                                       href={href}
