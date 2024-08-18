@@ -4,6 +4,8 @@ import Link from 'next/link'
 import React from 'react'
 import clsx from "clsx"
 import { AnimatePresence, motion } from 'framer-motion'
+import Image from 'next/image'
+import LogoImg from "@/images/Logo.svg"
 
 export default function Logo({ className, ...props }) {
 
@@ -15,17 +17,14 @@ export default function Logo({ className, ...props }) {
         onMouseEnter={() => {setIsHovered(true)}}
         onMouseLeave={() => {setIsHovered(false)}}
       >
-        <h2 className={clsx(  
-          "text-3xl font-bold text-white inset-0",
-          className
-        )}
-        >
-            Pioneer Orbitals
-        </h2>
+        <div className="flex gap-5 items-center pb-2">
+          <Image src={LogoImg} alt="logo" width={65} height={50} />
+          <h2 className="text-3xl inset-0 font-bold text-white">Pioneer Orbitals</h2>
+        </div>
       </Link>
       <AnimatePresence>
         <motion.div
-          className="border-b-2 border-lime-500 inset-0"
+          className="border-b-2 border-pioneer-orange inset-0"
           initial={false}
           animate={{
             width: isHovered ? "100%" : 0,

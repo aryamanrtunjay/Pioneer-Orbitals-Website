@@ -21,7 +21,7 @@ export default function NavLinks() {
                 <AnimatePresence>
                     {hoverIndex === _id && (
                         <motion.span
-                            className="absolute border-b-2 border-lime-500 inset-0"
+                            className="absolute border-b-2 border-pioneer-orange inset-0"
                             layoutId="hoverBackground"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1, transition: {duration: 0.15}}}
