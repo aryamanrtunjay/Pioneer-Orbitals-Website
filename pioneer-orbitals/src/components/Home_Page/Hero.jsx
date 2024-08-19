@@ -8,8 +8,12 @@ import Button from '@/components/Button'
 
 export default function Hero() {
 
-  const getOrientation = () =>
-    window.screen.orientation.type
+  const getOrientation = () => {
+    if(typeof window === "undefined") {
+      return "null";
+    }
+    return window.screen.orientation.type
+  }
 
   const [isDesktop, setIsDesktop] = React.useState(true);
   const [orientation, setOrientation] = React.useState(getOrientation());
