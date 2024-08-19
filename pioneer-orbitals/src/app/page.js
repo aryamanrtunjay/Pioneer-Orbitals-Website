@@ -4,7 +4,7 @@ import Hero from "@/components/Home_Page/Hero";
 export default function Home() {
   return (
     <main>
-      
+      <Hero />
     </main>
   );
 }

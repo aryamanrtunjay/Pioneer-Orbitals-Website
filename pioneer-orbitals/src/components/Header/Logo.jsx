@@ -17,8 +17,8 @@ export default function Logo({ className, ...props }) {
         onMouseEnter={() => {setIsHovered(true)}}
         onMouseLeave={() => {setIsHovered(false)}}
       >
-        <div className="flex gap-5 items-center pb-2">
-          <Image src={LogoImg} alt="logo" width={65} height={50} />
+        <div className="flex gap-3 items-center pb-2">
+          <Image src={LogoImg} alt="logo" width={50} height={50} />
           <h2 className="text-3xl inset-0 font-bold text-white">Pioneer Orbitals</h2>
         </div>
       </Link>
