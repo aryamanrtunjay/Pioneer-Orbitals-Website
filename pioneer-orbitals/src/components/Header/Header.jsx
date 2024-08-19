@@ -37,7 +37,8 @@ export default function Header() {
             <NavLinks />
           </div>
           <div className="flex items-center gap-6">
-            <Button href="#" variant="outline" className="hidden lg:block">Fly With Us</Button>
+            <Button href="#" variant="outline" className="hidden lg:block">Book your Flight</Button>
+            <Button href="#" className="hidden lg:block"> Join the Mission </Button> 
             <Popover className="lg:hidden">
               {({ open }) => (
                 <>
@@ -102,7 +103,8 @@ export default function Header() {
                                 ))}
                               </div>
                               <div className="mt-8 flex flex-col gap-4">
-                                <Button href="#" variant="outline">Fly With Us</Button>
+                                <Button href="#" variant="outline">Book your Flight</Button>
+                                <Button href="#"> Join the Mission </Button> 
                               </div>
                             </Popover.Panel>
                           </>

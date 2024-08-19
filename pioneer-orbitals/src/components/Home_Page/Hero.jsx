@@ -45,22 +45,17 @@ export default function Hero() {
     checkWindowSize()
   }, [])
 
-  const updateOrientation = event => {
-    setOrientation(getOrientation())
-  }
-
   React.useEffect(() => {
-    window.addEventListener(
-      'orientationchange',
-      updateOrientation
-    )
-    return () => {
-      window.removeEventListener(
-        'orientationchange',
-        updateOrientation
-      )
+    function updateOrientation() {
+      setOrientation(window.screen.orientation.type);
     }
-  }, [])
+
+    updateOrientation();
+    window.addEventListener("orientationchange", updateOrientation);
+    return () => {
+      window.removeEventListener("orientationchange", updateOrientation);
+    };
+  }, [orientation]);
 
   return (
     <div>
@@ -75,7 +70,7 @@ export default function Hero() {
       <div className={(orientation.substring(0, 9) === "landscape" && !isDesktop) ? "relative flex flex-col mt-20 h-min items-center mx-5 gap-3" : "relative flex flex-col mt-40 h-min items-center mx-5 gap-3"}>
         <h1 className="lg:text-6xl leading-none text-4xl font-bold tracking-widest uppercase text-center">Pioneering Space for All</h1>
         <h2 className="text-2xl font-medium text-center leading-none">Innovating small satellite launchers for a brighter future</h2>
-        <Button href="#about" variant="outline" className="h-10 w-40 text-lg text-center">Fly With Us</Button>
+        <Button href="#about" variant="outline" className="h-15 w-50 text-xl text-center mt-10">Fly With Us</Button>
       </div>
     </div>
   )
