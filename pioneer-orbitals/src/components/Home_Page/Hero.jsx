@@ -41,6 +41,10 @@ export default function Hero() {
     };
   }, []);
 
+  React.useEffect(() => {
+    checkWindowSize()
+  }, [])
+
   const updateOrientation = event => {
     setOrientation(getOrientation())
   }
@@ -58,7 +62,6 @@ export default function Hero() {
     }
   }, [])
 
-  console.log(orientation.substring(0, 9))
   return (
     <div>
       <Image 
@@ -69,7 +72,7 @@ export default function Hero() {
         objectPosition="center"
         alt="Rocket leaving the Earth"
       />
-      <div className={orientation.substring(0, 9) === "landspace-primar" ? "relative flex flex-col mt-40 h-min items-center mx-5 gap-3" : "relative flex flex-col mt-20 h-min items-center mx-5 gap-3"}>
+      <div className={(orientation.substring(0, 9) === "landscape" && !isDesktop) ? "relative flex flex-col mt-20 h-min items-center mx-5 gap-3" : "relative flex flex-col mt-40 h-min items-center mx-5 gap-3"}>
         <h1 className="lg:text-6xl leading-none text-4xl font-bold tracking-widest uppercase text-center">Pioneering Space for All</h1>
         <h2 className="text-2xl font-medium text-center leading-none">Innovating small satellite launchers for a brighter future</h2>
         <Button href="#about" variant="outline" className="h-10 w-40 text-lg text-center">Fly With Us</Button>
