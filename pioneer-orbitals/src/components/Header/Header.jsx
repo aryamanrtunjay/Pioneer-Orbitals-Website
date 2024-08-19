@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Logo from './Logo'
 import NavLinks from './NavLinks'
 import Container from './Container'
-import Button from './Button'
+import Button from '@/components/Button'
 import { Popover } from "@headlessui/react"
 import { TbMenu2 } from "react-icons/tb"
 import { IoIosArrowUp } from "react-icons/io" 
