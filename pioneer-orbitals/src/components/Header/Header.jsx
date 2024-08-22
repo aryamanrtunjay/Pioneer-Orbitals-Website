@@ -27,7 +27,7 @@ export default function Header() {
   const [hoverIndex, setHoverIndex] = useState(null);
 
   return (
-    <header>
+    <header className="mb-0">
       <nav>
         <Container className="relative z-50 flex justify-between py-8">
           <div className="relative z-10">

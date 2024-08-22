@@ -13,7 +13,7 @@ export default function NavLinks() {
             <Link
                 key={_id}
                 href={href}
-                className="relative -mx-3 -my-2 px-1 rounded-lg py-1 text-base
+                className="relative -mx-3 -my-2 px-1 rounded-lg py-2 text-base
                 text-gray-200 transition-colors"
                 onMouseEnter={() => setHoverIndex(_id)}
                 onMouseLeave={() => setHoverIndex(null)}
