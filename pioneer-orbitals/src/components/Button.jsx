@@ -15,7 +15,7 @@ const variantStyles = {
   },
 
   outline: {
-      gray: "border-white text-white hover:border-pioneer-orange active:bg-pioneer-orange active:text-black"
+      gray: "border-white text-white hover:border-pioneer-orange active:bg-pioneer-orange active:text-black justify-center items-center",
   }
 }
 
