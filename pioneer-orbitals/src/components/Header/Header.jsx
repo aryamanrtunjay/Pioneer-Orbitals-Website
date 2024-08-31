@@ -5,7 +5,7 @@ import Logo from './Logo'
 import NavLinks from './NavLinks'
 import Container from './Container'
 import Button from '@/components/Button'
-import { Popover } from "@headlessui/react"
+import { Popover, PopoverButton, PopoverPanel, PopoverBackdrop } from "@headlessui/react"
 import { TbMenu2 } from "react-icons/tb"
 import { IoIosArrowUp } from "react-icons/io" 
 import { AnimatePresence, motion } from 'framer-motion'
@@ -14,12 +14,12 @@ import Link from "next/link"
 
 const MovileNavLinks = ({children, ...props}) => {
   return (
-    <Popover.Button as={Link}
+    <PopoverButton as={Link}
       className="block text-base leading-7 tracking-tight text-white"
       {...props}
     >
       {children}
-    </Popover.Button>
+    </PopoverButton>
   )
 }
 
@@ -42,7 +42,7 @@ export default function Header() {
             <Popover className="lg:hidden">
               {({ open }) => (
                 <>
-                  <Popover.Button className="relative z-10 -m-2 inline-flex
+                  <PopoverButton className="relative z-10 -m-2 inline-flex
                     items-center rounded-lg stroke-gray-900 p-2
                     hover:bg-gray-600/50 hover:stroke-gray-600
                     active:stroke-gray-900 [&:not(:focus-visible)]:focus-outline-none outline-none">
@@ -50,11 +50,11 @@ export default function Header() {
                       ? (<IoIosArrowUp className="text-2xl" />) 
                       : (<TbMenu2 className="text-2xl" />)
                     }
-                  </Popover.Button>
+                  </PopoverButton>
                   <AnimatePresence initial={false}>
                     {open && (
                       <>
-                        <Popover.Overlay
+                        <PopoverBackdrop
                           static
                           as={motion.div}
                           initial={{ opacity: 0 }}
@@ -62,7 +62,7 @@ export default function Header() {
                           exit={{ opacity: 0 }}
                           className="fixed inset-0 z-0 bg-[#14141480] backdrop::blur"
                         />
-                        <Popover.Panel 
+                        <PopoverPanel 
                               static
                               as={motion.div}
                               initial={{ opacity: 0, y: -32 }}
@@ -106,7 +106,7 @@ export default function Header() {
                                 <Button href="#" variant="outline">Book your Flight</Button>
                                 <Button href="#"> Join the Mission </Button> 
                               </div>
-                            </Popover.Panel>
+                            </PopoverPanel>
                           </>
                         )}
                       </AnimatePresence>

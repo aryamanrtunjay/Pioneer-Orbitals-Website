@@ -1,11 +1,16 @@
 import React from 'react'
 import InfoCard from './InfoCard'
+import Card1Image from '@/images/MissionCard1.png'
 
 export default function Mission() {
   return (
-    <div>
-        <h1 className="text-3xl font-medium text-center leading-none">Website in Development</h1>
-        <div className="h-[100px]"/>
+    <div className="flex flex-col justify-center items-center">
+      <h1 className="text-[80px] mb-10">Our Mission</h1>
+      <div className="flex flex-row justify-center items-center gap-20 mx-12 mb-20">
+        <InfoCard src={Card1Image} alt="Image of Earth" title="Expanding Access to Space"/>
+        <InfoCard src={Card1Image} alt="Image of Earth" title="Expanding Access to Space"/>
+        <InfoCard src={Card1Image} alt="Image of Earth" title="Expanding Access to Space"/>
+      </div>
     </div>
   )
 }
