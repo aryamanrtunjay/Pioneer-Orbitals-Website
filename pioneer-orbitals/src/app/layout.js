@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import { Chakra_Petch } from 'next/font/google'
 import "./globals.css";
 import Header from "@/components/Header/Header";
+import InDevelopmentFooter from "@/components/InDevelopmentFooter";
 
 const inter = Inter({ subsets: ["latin"] });
 const chakraPetch = Chakra_Petch({
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
       <body className={chakraPetch.className}>
         <Header />
         {children}
+        <InDevelopmentFooter />
       </body>
     </html>
   );
