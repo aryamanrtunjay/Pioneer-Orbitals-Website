@@ -86,7 +86,7 @@ export default function Hero() {
       <div className={style}>
         <h1 className={isDesktop ? "text-6xl leading-none font-bold tracking-widest uppercase text-center" : "leading-none text-3xl font-medium tracking-widest uppercase text-center"}>Pioneering Space for All</h1>
         <h2 className={isDesktop ? "text-3xl font-medium text-center leading-none" : "text-lg font-light text-center leading-none"}>Reshaping the scope of orbital spaceflight for a brighter future</h2>
-        <Button href="/about" variant="outline" className={orientation.substring(0, 9) === "landscape" ? "h-15 w-60 text-xl text-center mt-5" : "h-15 w-60 text-xl text-center mt-10"}>Learn More</Button>
+        <Button href="/#bookings" variant="outline" className={orientation.substring(0, 9) === "landscape" ? "h-15 w-60 text-xl text-center mt-5" : "h-15 w-60 text-xl text-center mt-10"}>Reserve your Flight</Button>
       </div>
     </div>
   )
