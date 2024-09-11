@@ -35,3 +35,7 @@ body {
 .chakra-petch {
   font-family: var(--font-chakra-petch);
 }
+
+.ReactCollapse--collapse {
+  transition: height 500ms;
+}
