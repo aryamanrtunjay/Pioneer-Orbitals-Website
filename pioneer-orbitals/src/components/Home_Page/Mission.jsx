@@ -42,7 +42,7 @@ export default function Mission() {
   ]
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center mb-20">
       <h1 className="text-[40px] lg:text-[80px] mb-10 text-center">Our Mission</h1>
       <div className="flex flex-col lg:flex-row gap-20 mx-12 mb-20 items-start">
         {cardData.map((data, index) => {

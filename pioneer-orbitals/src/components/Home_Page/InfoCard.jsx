@@ -71,8 +71,8 @@ export default function InfoCard({ src, alt, title, infoText, toggle, open }) {
       
       <Collapse isOpened={open}>
         <div className="bg-[#393939] py-[40px] rounded-b-[30px] w-full max-w-[550px]">
-          {isDesktop && <h1 className="text-[20px] mx-[25px] mb-[25px] text-left"> {infoText} </h1>}
-          <Button variant="outline" className="w-[90%] h-[40px] border-white border-2 z-50">Read More</Button>
+          {<h1 className="text-[20px] mx-[25px] mb-[25px] text-center lg:text-left"> {infoText} </h1>}
+          <Button variant="outline" className="w-[70%] h-[40px] mx-[25px] border-white border-2 z-50">Read More</Button>
         </div>
       </Collapse>
 
