@@ -5,7 +5,6 @@ import Image from 'next/image'
 import HeroImage from '@/images/HeroImage.png'
 import HeroImageMobile from '@/images/HeroImageMobile.jpg'
 import Button from '@/components/Button'
-import { ParallaxProvider } from 'react-scroll-parallax'
 
 export default function Hero() {
 
@@ -73,16 +72,14 @@ export default function Hero() {
 
   return (
     <div className="h-dvh">
-      <ParallaxProvider>
-        <Image scrollAxis="vertical"
-          className="fixed opacity-40 z-0"
-          src={isDesktop ? HeroImage : HeroImageMobile}
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-          alt="Rocket leaving the Earth"
-        />
-      </ParallaxProvider>
+      <Image
+        className="fixed opacity-40 z-0"
+        src={isDesktop ? HeroImage : HeroImageMobile}
+        layout="fill"
+        objectFit="cover"
+        objectPosition="center"
+        alt="Earth as seen from space"
+      />
       <div className={style}>
         <h1 className={isDesktop ? "text-6xl leading-none font-bold tracking-widest uppercase text-center" : "leading-none text-3xl font-medium tracking-widest uppercase text-center"}>Pioneering Space for All</h1>
         <h2 className={isDesktop ? "text-3xl font-medium text-center leading-none" : "text-lg font-light text-center leading-none"}>Reshaping the scope of orbital spaceflight for a brighter future</h2>

@@ -12,7 +12,7 @@ export default function AccordionItem({open, toggle, title, content}) {
             onClick={toggle}
         >
             <p className="text-[22px] font-semibold"> {title} </p>
-            <div classname="text-[30px]">
+            <div className="text-[30px]">
                 {open ? <AiOutlineMinus /> : <AiOutlinePlus />}
             </div>
         </div>

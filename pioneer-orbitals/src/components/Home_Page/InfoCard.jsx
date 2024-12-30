@@ -39,7 +39,7 @@ export default function InfoCard({ src, alt, title, infoText, toggle, open }) {
   }, [])
 
   return (
-    <button
+    <div
       onClick={toggle}
       className="flex flex-col justify-center items-center relative z-0"
     >
@@ -90,7 +90,7 @@ export default function InfoCard({ src, alt, title, infoText, toggle, open }) {
           <Button variant="outline" className="w-[90%] h-[40px] border-white border-2 z-50">Read More</Button>
         </motion.div>
       </AnimatePresence> */}
-    </button>
+    </div>
   )
 }
 
