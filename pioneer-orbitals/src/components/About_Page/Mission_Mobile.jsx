@@ -40,6 +40,9 @@ export default function Mission_Mobile() {
   const clickPrev = () => {
     current === 0 ? setCurrent(sliderData.length - 1) : setCurrent(current - 1);
   };
+  const setImg = (idx) => {
+    setCurrent(idx);
+  };
 
   React.useEffect(() => {
     const interval = setInterval(() => {
@@ -133,7 +136,7 @@ export default function Mission_Mobile() {
                         </button>
                         <div className="flex flex-row gap-4">
                             {sliderData.map((img, idx) => (
-                            <div key={idx} className={`${idx === current ? "w-3 h-3 bg-white rounded-full" : "w-3 h-3 bg-opacity-0 border border-white rounded-full" }`}/>
+                            <button onClick={() => setImg(idx)} key={idx} className={`${idx === current ? "w-3 h-3 bg-white rounded-full cursor-pointer transition-all duration-200 ease-in-out" : "w-3 h-3 bg-opacity-0 border border-white rounded-full cursor-pointer transition-all duration-200 ease-in-out" }`}/>
                             ))}
                         </div>
                         <button>
