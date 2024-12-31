@@ -2,9 +2,9 @@
 
 import React from 'react'
 import InfoCard from './InfoCard'
-import Card1Image from '@/images/MissionCard1.png'
-import Card2Image from '@/images/MissionCard2.png'
-import Card3Image from '@/images/MissionCard3.png'
+import Card1Image from '@/images/Home/MissionCard1.png'
+import Card2Image from '@/images/Home/MissionCard2.png'
+import Card3Image from '@/images/Home/MissionCard3.png'
 
 export default function Mission() {
 

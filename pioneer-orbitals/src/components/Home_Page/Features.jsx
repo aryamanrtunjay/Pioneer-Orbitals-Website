@@ -3,7 +3,7 @@
 import React from 'react'
 import AccordionItem from './AccordionItem'
 import Button from '../Button';
-import FeaturesImage from '@/images/FeaturesImage.png'
+import FeaturesImage from '@/images/Home/FeaturesImage.png'
 import Image from 'next/image'
 
 export default function Features() {
@@ -80,7 +80,7 @@ export default function Features() {
                         return <AccordionItem key={index} open={index === open} title={data.title} content={data.content} toggle={() => toggle(index)}/>
                     })}
                 </div>
-                <Button href="/#bookings" variant="outline" className="h-15 w-full max-w-[720px] text-xl text-center mt-5">Reserve your Flight</Button>
+                <Button href="/booking" variant="outline" className="h-15 w-full max-w-[720px] text-xl text-center mt-5">Reserve your Flight</Button>
             </section>
         </div>
     )

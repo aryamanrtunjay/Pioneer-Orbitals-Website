@@ -2,9 +2,10 @@
 
 import React from 'react'
 import Image from 'next/image'
-import HeroImage from '@/images/Home/HeroImage.png'
-import HeroImageMobile from '@/images/Home/HeroImageMobile.jpg'
+import HeroImage from '@/images/About/HeroImage.png'
+import HeroImageMobile from '@/images/About/HeroImageMobile.jpg'
 import Button from '@/components/Button'
+import { IoIosArrowDown } from "react-icons/io" 
 
 export default function Hero() {
 
@@ -17,7 +18,7 @@ export default function Hero() {
 
   const [isDesktop, setIsDesktop] = React.useState(true);
   const [orientation, setOrientation] = React.useState(getOrientation());
-  const [style, setStyle] = React.useState("relative flex flex-col mt-40 h-min items-center mx-5 gap-3");
+  const [style, setStyle] = React.useState("relative flex flex-col pt-60 h-min items-center mx-5 gap-3");
 
   const checkWindowSize = () => {
     let windowWidth;
@@ -60,18 +61,18 @@ export default function Hero() {
 
   React.useEffect(() => {
     if(isDesktop) {
-      setStyle("relative flex flex-col pt-40 h-[calc(1/729*100%)] items-center mx-5 gap-3")
+      setStyle("relative flex flex-col pt-60 h-[calc(1/729*100%)] items-center mx-5 gap-3")
     }
     else if(!isDesktop && orientation.substring(0, 9) === "landscape") {
       setStyle("relative flex flex-col pt-10 h-min items-center mx-3 gap-3")
     }
     else {
-      setStyle("relative flex flex-col pt-20 h-min items-center mx-10 gap-3")
+      setStyle("relative flex flex-col pt-20 h-min items-center mx-3 gap-3")
     }
   }, [isDesktop, orientation])
 
   return (
-    <div className="h-dvh">
+    <div className="h-[calc(100vh-124px)]">
       <Image
         className="fixed opacity-50 z-0"
         src={isDesktop ? HeroImage : HeroImageMobile}
@@ -81,9 +82,10 @@ export default function Hero() {
         alt="Earth as seen from space"
       />
       <div className={style}>
-        <h1 className={isDesktop ? "text-6xl leading-none font-bold tracking-widest uppercase text-center" : "leading-none text-3xl font-medium tracking-widest uppercase text-center"}>Pioneering Space for All</h1>
-        <h2 className={isDesktop ? "text-3xl font-medium text-center leading-none" : "text-lg font-light text-center leading-none"}>Reshaping the scope of orbital spaceflight for a brighter future</h2>
-        <Button href="/booking" variant="outline" className={orientation.substring(0, 9) === "landscape" ? "h-15 w-60 text-xl text-center mt-5" : "h-15 w-60 text-xl text-center mt-10"}>Reserve your Flight</Button>
+        <h1 className={isDesktop ? "text-8xl font-light tracking-widest uppercase text-center" : "mx-0 px-0 text-5xl font-lightest tracking-widest uppercase text-center"}>ABOUT US</h1>
+      </div>
+      <div className="flex flex-col pb-10 h-max items-center">
+        <IoIosArrowDown className="absolute z-10 text-5xl bottom-10 ml-auto"/>
       </div>
     </div>
   )

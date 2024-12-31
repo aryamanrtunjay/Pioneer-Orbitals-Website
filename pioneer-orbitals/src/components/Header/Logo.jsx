@@ -5,7 +5,7 @@ import React from 'react'
 import clsx from "clsx"
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
-import LogoImg from "@/images/Logo.svg"
+import LogoImg from "@/images/Header/Logo.svg"
 
 export default function Logo({ className, ...props }) {
 

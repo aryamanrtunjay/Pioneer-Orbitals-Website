@@ -37,8 +37,8 @@ export default function Header() {
             <NavLinks />
           </div>
           <div className="flex items-center gap-6">
-            <Button href="#" variant="outline" className="hidden lg:block">Book your Flight</Button>
-            <Button href="#" className="hidden lg:block"> Join the Mission </Button> 
+            <Button href="booking" variant="outline" className="hidden lg:block">Book your Flight</Button>
+            <Button href="hiring" className="hidden lg:block"> Join the Mission </Button> 
             <Popover className="lg:hidden">
               {({ open }) => (
                 <>
