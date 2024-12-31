@@ -19,6 +19,7 @@ export default function Hero() {
   const [isDesktop, setIsDesktop] = React.useState(true);
   const [orientation, setOrientation] = React.useState(getOrientation());
   const [style, setStyle] = React.useState("relative flex flex-col pt-60 h-min items-center mx-5 gap-3");
+  const [textStyle, setTextStyle] = React.useState("text-8xl font-light tracking-widest uppercase text-center")
 
   const checkWindowSize = () => {
     let windowWidth;
@@ -62,12 +63,15 @@ export default function Hero() {
   React.useEffect(() => {
     if(isDesktop) {
       setStyle("relative flex flex-col pt-60 h-[calc(1/729*100%)] items-center mx-5 gap-3")
+      setTextStyle("text-8xl font-light tracking-widest uppercase text-center")
     }
     else if(!isDesktop && orientation.substring(0, 9) === "landscape") {
       setStyle("relative flex flex-col pt-10 h-min items-center mx-3 gap-3")
+      setTextStyle("text-5xl font-light tracking-widest uppercase text-center")
     }
     else {
       setStyle("relative flex flex-col pt-20 h-min items-center mx-3 gap-3")
+      setTextStyle("text-3xl font-light tracking-widest uppercase text-center")
     }
   }, [isDesktop, orientation])
 
@@ -82,7 +86,7 @@ export default function Hero() {
         alt="Earth as seen from space"
       />
       <div className={style}>
-        <h1 className={isDesktop ? "text-8xl font-light tracking-widest uppercase text-center" : "mx-0 px-0 text-5xl font-lightest tracking-widest uppercase text-center"}>Book your flight</h1>
+        <h1 className={textStyle}>Book your flight</h1>
       </div>
       <div className="flex flex-col pb-10 h-max items-center">
         <FaArrowDown className="absolute z-10 text-3xl bottom-10 ml-auto"/>
