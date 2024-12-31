@@ -67,7 +67,7 @@ export default function Statement() {
   }, [isDesktop, orientation])
 
   return (
-    <section className="border-y z-0 border-y-white py-8 px-4 lg:py-16 lg:px-16 text-center shadow-[rgba(0,0,0,1)_0px_0px_100px_100px]">
+    <section className="border-y z-0 border-y-white py-8 px-4 lg:py-16 lg:px-16 text-center shadow-[rgba(0,0,0,1)_0px_0px_400px_20px]">
       <div className="mx-auto lg:mx-[18rem]">
         <p className={style}>
           Pioneer Orbitals aims to revolutionize space access with cost-effective, 
