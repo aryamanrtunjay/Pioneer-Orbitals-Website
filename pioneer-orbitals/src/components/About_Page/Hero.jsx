@@ -5,7 +5,7 @@ import Image from 'next/image'
 import HeroImage from '@/images/About/HeroImage.png'
 import HeroImageMobile from '@/images/About/HeroImageMobile.jpg'
 import Button from '@/components/Button'
-import { IoIosArrowDown } from "react-icons/io" 
+import { FaArrowDown } from "react-icons/fa" 
 
 export default function Hero() {
 
@@ -85,7 +85,7 @@ export default function Hero() {
         <h1 className={isDesktop ? "text-8xl font-light tracking-widest uppercase text-center" : "mx-0 px-0 text-5xl font-lightest tracking-widest uppercase text-center"}>ABOUT US</h1>
       </div>
       <div className="flex flex-col pb-10 h-max items-center">
-        <IoIosArrowDown className="absolute z-10 text-5xl bottom-10 ml-auto"/>
+        <FaArrowDown className="absolute z-10 text-3xl bottom-10 ml-auto"/>
       </div>
     </div>
   )

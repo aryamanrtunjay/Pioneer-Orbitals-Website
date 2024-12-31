@@ -6,7 +6,7 @@ import Features from "@/components/Home_Page/Features";
 export default function Home() {
   return (
     <main>
-      <Hero/>
+      <Hero />
       <Mission />
       <Features />
     </main>
