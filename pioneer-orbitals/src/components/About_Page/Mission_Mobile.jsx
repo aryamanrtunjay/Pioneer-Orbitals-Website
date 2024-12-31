@@ -132,7 +132,7 @@ export default function Mission_Mobile() {
                     </div>
                     <div className="relative flex justify-between gap-10 items-center mx-auto mt-5">
                         <button> 
-                            <IoIosArrowDropleft onClick={clickPrev} className="text-4xl text-white bg-gray-700 rounded-full cursor-pointer hover:bg-gray-900 transition-all duration-200 ease-in-out" />
+                            <IoIosArrowDropleft onClick={clickPrev} className="text-4xl text-white rounded-full cursor-pointer transition-all duration-200 ease-in-out" />
                         </button>
                         <div className="flex flex-row gap-4">
                             {sliderData.map((img, idx) => (
@@ -140,7 +140,7 @@ export default function Mission_Mobile() {
                             ))}
                         </div>
                         <button>
-                            <IoIosArrowDropright onClick={clickNext} className="text-4xl text-white bg-gray-700 rounded-full cursor-pointer hover:bg-gray-900 transition-all duration-200 ease-in-out" />
+                            <IoIosArrowDropright onClick={clickNext} className="text-4xl text-white rounded-full cursor-pointer transition-all duration-200 ease-in-out" />
                         </button>
                     </div>
                 </div>

@@ -117,7 +117,7 @@ export default function Mission() {
               </div>
               <div className="relative flex justify-between gap-40 items-center mx-auto">
                 <button> 
-                  <IoIosArrowDropleft onClick={clickPrev} className="text-5xl text-white bg-gray-700 rounded-full cursor-pointer hover:bg-gray-900 transition-all duration-200 ease-in-out" />
+                  <IoIosArrowDropleft onClick={clickPrev} className="text-5xl text-white rounded-full cursor-pointer hover:bg-gray-900 transition-all duration-200 ease-in-out" />
                 </button>
                 <div className="flex flex-row gap-4 items-center justify-center">
                   {sliderData.map((img, idx) => (
@@ -125,7 +125,7 @@ export default function Mission() {
                   ))}
                 </div>
                 <button>
-                  <IoIosArrowDropright onClick={clickNext} className="text-5xl text-white bg-gray-700 rounded-full cursor-pointer hover:bg-gray-900 transition-all duration-200 ease-in-out" />
+                  <IoIosArrowDropright onClick={clickNext} className="text-5xl text-white rounded-full cursor-pointer hover:bg-gray-900 transition-all duration-200 ease-in-out" />
                 </button>
               </div>
             </div>
