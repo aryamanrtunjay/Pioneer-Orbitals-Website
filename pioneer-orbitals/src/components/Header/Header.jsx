@@ -103,8 +103,8 @@ export default function Header() {
                                 ))}
                               </div>
                               <div className="mt-8 flex flex-col gap-4">
-                                <Button href="#" variant="outline">Book your Flight</Button>
-                                <Button href="#"> Join the Mission </Button> 
+                                <Button href="booking" variant="outline">Book your Flight</Button>
+                                <Button href="hiring"> Join the Mission </Button> 
                               </div>
                             </PopoverPanel>
                           </>

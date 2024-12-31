@@ -8,7 +8,29 @@ import { IoIosArrowDropleft } from "react-icons/io";
 
 export default function Mission() {
 
+  const getOrientation = () => {
+    if(typeof window === "undefined") {
+      return "null";
+    }
+    return window.screen.orientation.type
+  }
+
+  const checkWindowSize = () => {
+    let windowWidth;
+    if(typeof window !== "undefined") {
+      windowWidth = window.innerWidth
+    }
+
+    if (windowWidth > 1024) {
+      setIsDesktop(true)
+    } else {
+      setIsDesktop(false)
+    }
+  }
+
   const [current, setCurrent] = React.useState(0);
+  const [isDesktop, setIsDesktop] = React.useState(true);
+  const [orientation, setOrientation] = React.useState(getOrientation());
 
   const clickNext = () => {
     current === sliderData.length - 1 ? setCurrent(0) : setCurrent(current + 1);
@@ -26,9 +48,35 @@ export default function Mission() {
     };
   }, [current]);
 
+  React.useEffect(() => {
+    function handleResize() {
+      checkWindowSize();
+    }
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  React.useEffect(() => {
+    checkWindowSize()
+  }, [])
+
+  React.useEffect(() => {
+    function updateOrientation() {
+      setOrientation(window.screen.orientation.type);
+    }
+
+    updateOrientation();
+    window.addEventListener("orientationchange", updateOrientation);
+    return () => {
+      window.removeEventListener("orientationchange", updateOrientation);
+    };
+  }, [orientation]);
+  
   return (
     <div className="flex flex-col gap-5 mx-10 my-10">
-      <div className="relative grid place-items-center grid-cols-2">
+      <div className="relative grid place-items-center lg:grid-cols-2">
         <div className="w-full flex justify-center items-center transition-transform ease-in-outduration-500">
           {sliderData.map((img, idx) => (
             <div
@@ -42,7 +90,7 @@ export default function Mission() {
                 alt=""
                 width={0}
                 height={0}
-                sizes="full"
+                sizes="100vw"
                 className="w-full h-full object-cover rounded-l-[50px]"
               />
             </div>

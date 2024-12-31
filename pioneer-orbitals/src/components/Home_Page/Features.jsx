@@ -75,7 +75,7 @@ export default function Features() {
             </div>}
             <section className="h-full flex flex-col justify-center items-center gap-5">
                 <h1 className="text-[40px] lg:text-[80px] text-center">Why Choose Us?</h1>
-                <div className="px-[40px] max-w-[800px] mb-5">
+                <div className="lg:px-[40px] max-w-[800px] mb-5">
                     {accordionData.map((data, index) => {
                         return <AccordionItem key={index} open={index === open} title={data.title} content={data.content} toggle={() => toggle(index)}/>
                     })}

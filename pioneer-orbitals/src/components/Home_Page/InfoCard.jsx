@@ -65,7 +65,7 @@ export default function InfoCard({ src, alt, title, infoText, toggle, open }) {
           src={src}
           alt={alt}
           fill
-          className={!open ? "blur-lg object-cover w-full max-w-[550px] h-full z-[-5]" : "object-cover w-full max-w-[550px] h-full z-[-5]"}
+          className={!open ? "blur-lg object-cover z-[-5]" : "object-cover z-[-5]"}
         />
       </div>
       
