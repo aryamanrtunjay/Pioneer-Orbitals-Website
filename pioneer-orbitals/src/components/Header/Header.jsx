@@ -33,7 +33,7 @@ export default function Header() {
           <div className="relative z-10">
             <Logo />
           </div>
-          <div className="hidden lg:flex lg:gap-10 items-center ">
+          <div className="hidden lg:flex lg:gap-14 items-center ">
             <NavLinks />
           </div>
           <div className="flex items-center gap-6">
