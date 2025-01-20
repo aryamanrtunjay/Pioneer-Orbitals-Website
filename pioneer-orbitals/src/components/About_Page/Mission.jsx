@@ -1,138 +1,116 @@
-"use client"
+"use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { sliderData } from "@/constants/About_Page/mission.jsx";
 import Image from "next/image";
-import { IoIosArrowDropright } from "react-icons/io";
-import { IoIosArrowDropleft } from "react-icons/io";
+import { IoIosArrowDropright, IoIosArrowDropleft } from "react-icons/io";
 
 export default function Mission() {
+  const [current, setCurrent] = useState(0);
 
-  const getOrientation = () => {
-    if(typeof window === "undefined") {
-      return "null";
-    }
-    return window.screen.orientation.type
-  }
-
-  const checkWindowSize = () => {
-    let windowWidth;
-    if(typeof window !== "undefined") {
-      windowWidth = window.innerWidth
-    }
-
-    if (windowWidth > 1024) {
-      setIsDesktop(true)
-    } else {
-      setIsDesktop(false)
-    }
-  }
-
-  const [current, setCurrent] = React.useState(0);
-  const [isDesktop, setIsDesktop] = React.useState(true);
-  const [orientation, setOrientation] = React.useState(getOrientation());
-
+  // Handlers for next/prev
   const clickNext = () => {
-    current === sliderData.length - 1 ? setCurrent(0) : setCurrent(current + 1);
+    setCurrent((prev) =>
+      prev === sliderData.length - 1 ? 0 : prev + 1
+    );
   };
   const clickPrev = () => {
-    current === 0 ? setCurrent(sliderData.length - 1) : setCurrent(current - 1);
-  };
-  const setImg = (idx) => {
-    setCurrent(idx);
+    setCurrent((prev) =>
+      prev === 0 ? sliderData.length - 1 : prev - 1
+    );
   };
 
-  React.useEffect(() => {
+  // Auto‐advance every 10 seconds
+  useEffect(() => {
     const interval = setInterval(() => {
       clickNext();
     }, 10000);
-    return () => { 
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, [current]);
 
-  React.useEffect(() => {
-    function handleResize() {
-      checkWindowSize();
-    }
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  React.useEffect(() => {
-    checkWindowSize()
-  }, [])
-
-  React.useEffect(() => {
-    function updateOrientation() {
-      setOrientation(window.screen.orientation.type);
-    }
-
-    updateOrientation();
-    window.addEventListener("orientationchange", updateOrientation);
-    return () => {
-      window.removeEventListener("orientationchange", updateOrientation);
-    };
-  }, [orientation]);
-  
   return (
-    <div className="flex flex-col gap-5 mx-10 my-10">
-      <div className="relative grid place-items-center lg:grid-cols-2">
-        <div className="w-full flex justify-center items-center transition-transform ease-in-outduration-500">
-          {sliderData.map((img, idx) => (
+    <div className="flex flex-col items-center gap-5 mx-10 my-10">
+      <div className="relative w-full h-[90vh] overflow-hidden rounded-[50px]">
+        {/* 
+          -- The “track” of slides. 
+             We shift it with translateX to show the active slide.
+        */}
+        <div
+          className="flex h-full w-full transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${current * 100}%)` }}
+        >
+          {sliderData.map((slide, idx) => (
             <div
-              className={`
-                ${idx === current ? "block w-full h-[90vh] object-cover transition-all duration-500 ease-in-out" : "hidden"}
-              `}
               key={idx}
+              className="flex-shrink-0 w-full h-full flex"
             >
-              <Image
-                src={img.src}
-                alt=""
-                width={0}
-                height={0}
-                sizes="100vw"
-                className="w-full h-full object-cover rounded-l-[50px]"
-              />
-            </div>
-          ))}
-        </div>
-        <div className="w-full flex justify-center items-center gap-4 transition-transform ease-in-outduration-500">
-          {sliderData.map((img, idx) => (
-            <div
-              className={`
-                ${idx === current ? "flex flex-col items-center justify-between py-10 px-10 w-full h-[90vh] object-cover transition-all duration-500 ease-in-out bg-[#393939] rounded-r-[50px]" : "hidden"}
-              `}
-              key={idx}
-            >
-              <div>
-                <h1 className="text-4xl text-center">{img.number}</h1>
-                <h1 className="text-4xl text-center">{img.title}</h1>
+              {/* LEFT: image */}
+              <div className="w-1/2 h-full relative">
+                <Image
+                  src={slide.src}
+                  alt=""
+                  fill
+                  className="object-cover rounded-l-[50px]"
+                />
               </div>
-              <div className="flex flex-col space-y-5 text-xl text-center">
-                <p> {img.desc_p1} </p>
-                <p> {img.desc_p2} </p>
-              </div>
-              <div className="relative flex justify-between gap-40 items-center mx-auto">
-                <button> 
-                  <IoIosArrowDropleft onClick={clickPrev} className="text-5xl text-white rounded-full cursor-pointer hover:bg-gray-900 transition-all duration-200 ease-in-out" />
-                </button>
-                <div className="flex flex-row gap-4 items-center justify-center">
-                  {sliderData.map((img, idx) => (
-                    <button onClick={() => setImg(idx)} key={idx} className={`${idx === current ? "w-3 h-3 hover:w-5 hover:h-5 bg-white rounded-full cursor-pointer transition-all duration-200 ease-in-out" : "w-3 h-3 hover:w-5 hover:h-5 bg-opacity-0 border border-white rounded-full cursor-pointer transition-all duration-200 ease-in-out" }`}/>
-                  ))}
+
+              {/* RIGHT: text + stationary nav */}
+              <div
+                className="
+                  w-1/2 h-full bg-[#393939] text-white 
+                  flex flex-col items-center justify-between 
+                  text-center py-10 px-10 rounded-r-[50px]
+                "
+              >
+                {/* Slide Heading */}
+                <div>
+                  <h1 className="text-4xl">{slide.number}</h1>
+                  <h2 className="text-4xl mt-2">{slide.title}</h2>
                 </div>
-                <button>
-                  <IoIosArrowDropright onClick={clickNext} className="text-5xl text-white rounded-full cursor-pointer hover:bg-gray-900 transition-all duration-200 ease-in-out" />
-                </button>
+
+                {/* Slide Body Text */}
+                <div className="flex flex-col space-y-5 text-xl">
+                  <p>{slide.desc_p1}</p>
+                  <p>{slide.desc_p2}</p>
+                </div>
+
+                {/* Nav Buttons + Indicators (centered at bottom of text panel) */}
+                <div className="flex flex-col items-center gap-4 mt-6">
+                  {/* Arrows */}
+                  <div className="flex gap-8">
+                    <button
+                      onClick={clickPrev}
+                      className="p-2 text-5xl rounded-full hover:bg-gray-800 transition duration-200"
+                    >
+                      <IoIosArrowDropleft />
+                    </button>
+                    <button
+                      onClick={clickNext}
+                      className="p-2 text-5xl rounded-full hover:bg-gray-800 transition duration-200"
+                    >
+                      <IoIosArrowDropright />
+                    </button>
+                  </div>
+                  {/* Dots */}
+                  <div className="flex gap-4">
+                    {sliderData.map((_, dotIdx) => (
+                      <button
+                        key={dotIdx}
+                        onClick={() => setCurrent(dotIdx)}
+                        className={
+                          dotIdx === current
+                            ? "w-3 h-3 bg-white rounded-full cursor-pointer transition-all duration-200 hover:w-4 hover:h-4"
+                            : "w-3 h-3 bg-opacity-0 border border-white rounded-full cursor-pointer transition-all duration-200 hover:w-4 hover:h-4"
+                        }
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-      
     </div>
   );
 }

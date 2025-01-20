@@ -5,6 +5,7 @@ import Hero from "@/components/About_Page/Hero";
 import Statement from "@/components/About_Page/Statement";
 import Mission from "@/components/About_Page/Mission";
 import MissionMobile from "@/components/About_Page/Mission_Mobile";
+import Team from "@/components/About_Page/Team";
 
 export default function Page() {
   const checkWindowSize = () => {
@@ -34,12 +35,14 @@ export default function Page() {
   React.useEffect(() => {
     checkWindowSize()
   }, [])
+  
 
   return (
     <main>
       <Hero/>
       <Statement />
       {isDesktop ? <Mission /> : <MissionMobile />}
+      <Team />
     </main>
   )
 }
