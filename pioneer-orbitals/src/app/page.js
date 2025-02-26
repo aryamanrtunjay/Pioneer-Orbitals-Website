@@ -10,8 +10,9 @@ const HeroSection = () => {
     <div className="relative h-screen flex items-center justify-center overflow-hidden" id="home">
       {/* Space background */}
       <div className="absolute inset-0 bg-gray-900">
-        {/* We would use an actual space image here, using a placeholder for now */}
-        <div className="absolute inset-0 bg-gray-900 opacity-60"></div>
+        <Image>
+          
+        </Image>
       </div>
       
       <div className="container mx-auto px-6 relative z-10 text-center">
