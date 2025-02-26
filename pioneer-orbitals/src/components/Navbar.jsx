@@ -46,9 +46,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
           >
             {/* Logo placeholder - in a real project, use an actual logo file */}
-            <div className="w-10 h-10 rounded-full bg-[#fdbd53] flex items-center justify-center mr-3">
-              
-            </div>
+            <Image src={Logo} alt="logo" width={50} height={50} className="mr-5"/>
             <span className="text-2xl font-bold text-white">
               <span className="text-[#fdbd53]">Pioneer</span> Orbitals
             </span>
@@ -64,7 +62,7 @@ const Navbar = () => {
             
             return (
               <Link href={item.path} key={item.name} passHref>
-                <motion.a
+                <motion.button
                   className={`transition-colors ${
                     isActive 
                       ? 'text-[#fdbd53] font-semibold' 
@@ -80,7 +78,7 @@ const Navbar = () => {
                       layoutId="navbar-underline"
                     />
                   )}
-                </motion.a>
+                </motion.button>
               </Link>
             );
           })}

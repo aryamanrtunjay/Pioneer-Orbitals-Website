@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Head from "next/head";
 import Image from 'next/image';
 import HeroImage from '@/images/HeroImage.png'
+import AboutImage from '@/images/About.webp'
 
 // Hero Section
 const HeroSection = () => {
@@ -23,42 +24,34 @@ const HeroSection = () => {
       
       <div className="container mx-auto px-6 relative z-10 text-center">
         <motion.h1 
-          className="text-5xl md:text-7xl font-bold text-white mb-6"
+          className="text-5xl md:text-7xl font-bold text-white mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Making Space <span className="text-[#fdbd53]">Accessible</span>
+          <span className="text-[#fdbd53]">Pioneering</span> Space for All
         </motion.h1>
         
         <motion.p 
-          className="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto"
+          className="text-xl md:text-3xl text-gray-200 mb-7 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Affordable, reusable Small-Lift Vehicles (SLVs) democratizing access to space for the next generation of innovation.
+          Reshaping the scope of orbital spaceflight for a brighter future
         </motion.p>
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-        >
+        > 
           <motion.button 
             className="bg-[#fdbd53] hover:bg-[#cc7900] text-gray-900 font-bold py-3 px-8 rounded-full text-lg mr-4 transition-colors"
             whileHover={{ scale: 1.05, boxShadow: "0px 0px 8px rgb(253, 189, 83)" }}
             whileTap={{ scale: 0.95 }}
           >
-            Our Technology
-          </motion.button>
-          
-          <motion.button 
-            className="bg-transparent border-2 border-[#fdbd53] text-[#fdbd53] hover:bg-[#fdbd53] hover:text-gray-900 font-bold py-3 px-8 rounded-full text-lg transition-colors"
-            whileHover={{ scale: 1.05, boxShadow: "0px 0px 8px rgb(253, 189, 83)" }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Contact Us
+            Reserve A Seat
           </motion.button>
         </motion.div>
         
@@ -98,8 +91,8 @@ const AboutSection = () => {
               By focusing on efficiency and sustainability, we're reducing both costs and environmental impact, making space accessible to a wider range of industries and innovators.
             </p>
             <motion.button 
-              className="bg-[#fdbd53] hover:bg-[#cc7900] text-gray-900 font-semibold py-2 px-6 rounded-full transition-colors"
-              whileHover={{ scale: 1.05 }}
+              className="bg-transparent border-2 border-[#fdbd53] text-[#fdbd53] hover:bg-[#fdbd53] hover:text-gray-900 font-bold py-3 px-8 rounded-full text-sm transition-colors"
+              whileHover={{ scale: 1.05, boxShadow: "0px 0px 8px rgb(253, 189, 83)" }}
               whileTap={{ scale: 0.95 }}
             >
               Learn More
@@ -114,14 +107,15 @@ const AboutSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             {/* Here we would use an actual company image */}
+            <Image
+              className="fixed z-0 w-24 h-24"
+              src={AboutImage}
+              layout="fill"
+              objectFit="cover"
+              objectPosition="center"
+              alt="Satellite in orbit"
+            />
             <div className="absolute inset-0 bg-gradient-to-br from-[#fdbd53] to-[#cc7900] opacity-30"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-24 h-24 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
-                <svg className="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>
@@ -260,11 +254,11 @@ const TechnologySection = () => {
               </li>
             </ul>
             <motion.button 
-              className="bg-[#fdbd53] hover:bg-[#cc7900] text-gray-900 font-semibold py-2 px-6 rounded-full transition-colors"
-              whileHover={{ scale: 1.05 }}
+              className="bg-transparent border-2 border-[#fdbd53] text-[#fdbd53] hover:bg-[#fdbd53] hover:text-gray-900 font-bold py-3 px-8 rounded-full text-sm transition-colors"
+              whileHover={{ scale: 1.05, boxShadow: "0px 0px 8px rgb(253, 189, 83)" }}
               whileTap={{ scale: 0.95 }}
             >
-              Technical Specifications
+              Read Our Whitepaper
             </motion.button>
           </motion.div>
           
@@ -301,9 +295,9 @@ const TechnologySection = () => {
 const StatsSection = () => {
   const stats = [
     { number: "60%", label: "Cost Reduction" },
-    { number: "30%", label: "Fuel Efficiency" },
+    { number: "100%", label: "Rocket Reused" },
     { number: "48h", label: "Turnaround Time" },
-    { number: "99.7%", label: "Mission Success Rate" }
+    { number: "99.98%", label: "Mission Success Rate" }
   ];
 
   return (
