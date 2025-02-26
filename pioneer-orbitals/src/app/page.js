@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Head from "next/head";
 import Image from 'next/image';
+import HeroImage from '@/images/HeroImage.png'
 
 // Hero Section
 const HeroSection = () => {
@@ -10,9 +11,14 @@ const HeroSection = () => {
     <div className="relative h-screen flex items-center justify-center overflow-hidden" id="home">
       {/* Space background */}
       <div className="absolute inset-0 bg-gray-900">
-        <Image>
-          
-        </Image>
+        <Image
+          className="fixed opacity-30 z-0"
+          src={HeroImage}
+          layout="fill"
+          objectFit="cover"
+          objectPosition="center"
+          alt="Earth as seen from space"
+        />
       </div>
       
       <div className="container mx-auto px-6 relative z-10 text-center">
